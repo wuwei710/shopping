@@ -1,0 +1,37 @@
+server:
+  port: 8910
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    auto-mapping-behavior: full
+  type-aliases-package: com.entity
+
+spring:
+  application:
+    name: shoppingsever
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/smbms
+    username: root
+    password: root
+  jta:
+    atomikos:
+      datasource:
+        max-pool-size: 50
+        min-pool-size: 10
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50mb
+      max-request-size: 500mb
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://user:password123@localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
